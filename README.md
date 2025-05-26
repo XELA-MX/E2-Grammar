@@ -226,7 +226,6 @@ Para finalizar, realizamos nuestra tabla de primer y siguiente estado para prepa
 
 ## Implementación y Pruebas
 
-### Implementación Conceptual del Parser LL(1)
 El parser se implementa utilizando una **pila** para gestionar los símbolos gramaticales y una **tabla de análisis LL(1)** precalculada. Los pasos clave son:
 
 1. **Inicialización**:  
