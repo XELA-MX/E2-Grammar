@@ -188,6 +188,22 @@ De esta manera, por el lado izquierdo siempre encontrará los elementos terminal
 
 **Referencia: (1)**  
 
+---
+
+## Análisis de Complejidad con la Jerarquía de Chomsky
+
+La complejidad de la gramática se analiza utilizando la jerarquía de Chomsky, tanto antes como después de limpiar la gramática.
+
+### Antes de la limpieza:
+- **Gramática original**: Tipo 2 (Libre de contexto) con recursividad izquierda
+- **Problemas**: Ambigüedad y recursividad izquierda impiden análisis LL(1)
+
+### Después de la limpieza:
+- **Gramática modificada**: Tipo 2 (Libre de contexto) sin recursividad izquierda
+- **Ventajas**: Compatible con analizadores LL(1), determinista, sin ambigüedades
+
+La transformación mantiene la gramática en el mismo nivel de la jerarquía de Chomsky (Tipo 2), pero la hace más eficiente para el análisis sintáctico descendente.
+
 ## Primer y siguiente estado
 
 Para finalizar, realizamos nuestra tabla de primer y siguiente estado para preparar la construcción del parser. **First** ayuda cuando tienes un no terminal y quieres saber qué producción usar: comparas el token de entrada con los conjuntos de First de cada producción, si la entrada está aquí, la usas. **Follow** ayuda cuando en el no terminal se encuentra vacío (ε) en el First; si es el caso, usas estos.
