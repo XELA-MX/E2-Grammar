@@ -131,5 +131,12 @@ solo puede agruparse de una forma, por ejemplo:
 ![](./imgs/amb-1.jfif)
 
 
+Esto fuerza la precedencia y elimina la ambigüedad, ya que "e" (and) se agrupa antes que "ou" (or).
+
+> **Nota:**  
+> Aunque la ambigüedad se elimina, la gramática aún puede tener recursividad izquierda, que se abordará en el siguiente paso.
+
+
+
 
 
