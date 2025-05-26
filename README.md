@@ -86,5 +86,9 @@ Por ejemplo, la oración:
 
 - **"Eu estou falando na escola e você está correndo no parque ou ele está estudiando no cinema"**
 
+#### Árbol 1
+
+![](./imgs/a1.jfif)
+
 
 
