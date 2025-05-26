@@ -162,6 +162,25 @@ De esta manera, por el lado izquierdo siempre encontrará los elementos terminal
 
 **Referencia: (1)**  
 
+## Primer y siguiente estado
+
+Para finalizar, realizamos nuestra tabla de primer y siguiente estado para preparar la construcción del parser. **First** ayuda cuando tienes un no terminal y quieres saber qué producción usar: comparas el token de entrada con los conjuntos de First de cada producción, si la entrada está aquí, la usas. **Follow** ayuda cuando en el no terminal se encuentra vacío (ε) en el First; si es el caso, usas estos.
+
+### Tabla de conjuntos FIRST y FOLLOW
+
+| Estado | Nullable? | First()                                                     | Follow()                                              |
+|--------|-----------|-------------------------------------------------------------|-------------------------------------------------------|
+| O      | ✗         | {eu, você, ele, ela, nós, vocês, eles, elas}               | {$}                                                   |
+| O'     | ✓         | {ou, ε}                                                     | {$}                                                   |
+| T      | ✗         | {eu, você, ele, ela, nós, vocês, eles, elas}               | {ou, $}                                               |
+| T'     | ✓         | {e, ε}                                                      | {ou, $}                                               |
+| F      | ✗         | {eu, você, ele, ela, nós, vocês, eles, elas}               | {e, ou, $}                                            |
+| S      | ✗         | {eu, você, ele, ela, nós, vocês, eles, elas}               | {estou, está, estamos, estão}                        |
+| V      | ✗         | {estou, está, estamos, estão}                              | {falando, comendo, andando, correndo, estudando}     |
+| G      | ✗         | {falando, comendo, andando, correndo, estudando}           | {no, na, em, ao lado de, perto de}                   |
+| Prep   | ✗         | {no, na, em, ao lado de, perto de}                         | {parque, escola, casa, cinema}                       |
+| L      | ✗         | {parque, escola, casa, cinema}                             | {e, ou, $}                                            |
+| Pr     | ✗         | {no, na, em, ao lado de, perto de}                         | {e, ou, $}                                            |
 
 ## Bibliografías
 (1) Teoría de la Computación. (2011). *Eliminación de recursividad izquierda*. Recuperado de http://teodelacomp.blogspot.com/2011/03/eliminacion-de-recursividad-izquierda.html
