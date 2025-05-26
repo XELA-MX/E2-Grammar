@@ -224,6 +224,39 @@ Para finalizar, realizamos nuestra tabla de primer y siguiente estado para prepa
 | L      | ✗         | {parque, escola, casa, cinema}                             | {e, ou, $}                                            |
 | Pr     | ✗         | {no, na, em, ao lado de, perto de}                         | {e, ou, $}                                            |
 
+## Implementación y Pruebas
+
+### Implementación Conceptual del Parser LL(1)
+El parser se implementa utilizando una **pila** para gestionar los símbolos gramaticales y una **tabla de análisis LL(1)** precalculada. Los pasos clave son:
+
+1. **Inicialización**:  
+   - La pila se inicia con el símbolo inicial (`O`) y el marcador de fin (`$`).  
+   - Los tokens de entrada se leen de izquierda a derecha.  
+
+2. **Proceso de Análisis**:  
+   - Si el tope de la pila es un **terminal**, se compara con el token actual de entrada:  
+     - Si coinciden, se elimina de la pila y se avanza al siguiente token.  
+     - Si no coinciden, se reporta un error.  
+   - Si el tope de la pila es un **no terminal**, se consulta la tabla LL(1) usando el no terminal y el token actual:  
+     - Se reemplaza el no terminal por la producción correspondiente (en orden inverso).  
+     - Si la celda está vacía, se reporta un error.  
+
+3. **Finalización**:  
+   - El análisis es exitoso si la pila y la entrada llegan a `$` simultáneamente.  
+
+### Casos de Prueba
+#### Pruebas Correctas (Ejemplos):  
+1. `Eu estou falando na escola`  
+2. `Você está correndo no parque`  
+3. `Nós estamos comendo na casa e eles estão estudando no cinema`  
+
+#### Pruebas Incorrectas (Errores Comunes):  
+1. **Conjugación incorrecta**:  
+   - `Eu está falando` → `está` no coincide con `eu` (debería ser `estou`).  
+2. **Falta verbo auxiliar**:  
+   - `Você correndo na escola` → Falta `está`.  
+3. **Preposición ausente**:  
+   - `Ela está pensando escola` → Falta `na` antes de `escola`. 
 
 
 ## Bibliografías
