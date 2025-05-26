@@ -160,9 +160,10 @@ De esta manera, por el lado izquierdo siempre encontrará los elementos terminal
 
 ---
 
-**Referencia:**  
-Una explicación detallada del proceso y el algoritmo para eliminar la recursividad izquierda en gramáticas puede consultarse en:
+**Referencia: (1)**  
 
-Teoría de la Computación. (2011). *Eliminación de recursividad izquierda*. Recuperado de http://teodelacomp.blogspot.com/2011/03/eliminacion-de-recursividad-izquierda.html
+
+## Bibliografías
+(1) Teoría de la Computación. (2011). *Eliminación de recursividad izquierda*. Recuperado de http://teodelacomp.blogspot.com/2011/03/eliminacion-de-recursividad-izquierda.html
 
 
