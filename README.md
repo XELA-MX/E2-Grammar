@@ -264,4 +264,5 @@ Al ejecutar el programa, la salida mostrará los árboles de derivación para la
 ## Bibliografías
 (1) Teoría de la Computación. (2011). *Eliminación de recursividad izquierda*. Recuperado de http://teodelacomp.blogspot.com/2011/03/eliminacion-de-recursividad-izquierda.html
 Kevin Lajpop. (2021, 21 septiembre). Cálculo de primeros y siguientes: LL1 [Vídeo]. YouTube. https://www.youtube.com/watch?v=FX9bQ_YNlIc
+Elmay. (s. f.). GitHub - Elmay05/E2_gramatica. GitHub. https://github.com/Elmay05/E2_gramatica - Gracias por las aclaraciones y una guía de estructura.
 
