@@ -150,20 +150,20 @@ En la gramática original, las reglas con recursividad izquierda eran:
 
 ### Proceso de Eliminación  
 #### Para la regla **O → O 'ou' T | T**:  
-1. **Identificar componentes**:  
+1. **¿Dónde sucede?**:  
    - β = T  
    - α = 'ou' T  
 
-2. **Reescribir reglas**:  
+2. **Generar nueva instrucción**:  
    - **O → T O'** (β seguido de nuevo no terminal)  
    - **O' → 'ou' T O' | ε** (maneja repeticiones de α)  
 
 #### Para la regla **T → T 'e' F | F**:  
-1. **Identificar componentes**:  
+1. **¿Dónde sucede?**:  
    - β = F  
    - α = 'e' F  
 
-2. **Reescribir reglas**:  
+2. **Generar nueva instrucción**:  
    - **T → F T'**  
    - **T' → 'e' F T' | ε**  
 
