@@ -138,7 +138,9 @@ Esto fuerza la precedencia y elimina la ambigüedad, ya que "e" (and) se agrupa 
 
 ## Eliminar recursividad izquierda
 
-Este punto es importante, principalmente porque la forma en que los parsers procesan el lenguaje está definida por esa gramática. En nuestro caso, el analizador LL(1) es un analizador descendente que comienza por el símbolo inicial de la gramática e intenta derivar la cadena de entrada expandiendo los no terminales según las reglas de producción. La recursividad izquierda puede crear una llamada recursiva infinita, haciendo que el parser intente expandir los no terminales indefinidamente sin consumir ninguna parte de la entrada. De igual manera, ayuda al parser a tomar decisiones deterministas sobre qué producción aplicar.
+Este punto es importante, principalmente porque la forma en que los parsers procesan el lenguaje está definida por esa gramática. En nuestro caso, el analizador LL(1) es un analizador descendente que comienza por el símbolo inicial de la gramática e intenta derivar la cadena de entrada expandiendo los no terminales según las reglas de producción. 
+
+La recursividad izquierda puede crear una llamada recursiva infinita, haciendo que el parser intente expandir los no terminales indefinidamente sin consumir ninguna parte de la entrada. 
 
 #### Nueva Grámatica
 
