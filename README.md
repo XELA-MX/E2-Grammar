@@ -51,13 +51,13 @@ En esta fase se identifican las unidades sintácticas básicas y las reglas que 
 
 ### Gramática propuesta
 
-O -> S V G Pr | O 'e' O | O 'ou' O
-S -> 'eu' | 'você' | 'ele' | 'ela' | 'nós' | 'vocês' | 'eles' | 'elas'
-V -> 'estou' | 'está' | 'estamos' | 'estão'
-G -> 'falando' | 'comendo' | 'andando' | 'correndo' | 'estudando'
-Prep -> 'no' | 'na' | 'em' | 'ao lado de' | 'perto de'
-L -> 'parque' | 'escola' | 'casa' | 'cinema'
-Pr -> Prep L
+- O -> S V G Pr | O 'e' O | O 'ou' O
+- S -> 'eu' | 'você' | 'ele' | 'ela' | 'nós' | 'vocês' | 'eles' | 'elas'
+- V -> 'estou' | 'está' | 'estamos' | 'estão'
+- G -> 'falando' | 'comendo' | 'andando' | 'correndo' | 'estudando'
+- Prep -> 'no' | 'na' | 'em' | 'ao lado de' | 'perto de'
+- L -> 'parque' | 'escola' | 'casa' | 'cinema'
+- Pr -> Prep L
 
 **Símbolos:**
 - `O`  : oración completa
@@ -109,17 +109,17 @@ Para eliminar la ambigüedad, añadimos estados intermedios y reglas que indican
 
 Nueva grámatica:
 
-O -> T Oa
-Oa -> 'ou' T Oa | ε
-T -> F Ta
-Ta -> 'e' F Ta | ε
-F -> S V G Pr
-S -> 'eu' | 'você' | 'ele' | 'ela' | 'nós' | 'vocês' | 'eles' | 'elas'
-V -> 'estou' | 'está' | 'estamos' | 'estão'
-G -> 'falando' | 'comendo' | 'andando' | 'correndo' | 'estudando'
-Prep-> 'no' | 'na' | 'em' | 'ao lado de' | 'perto de'
-L -> 'parque' | 'escola' | 'casa' | 'cinema'
-Pr -> Prep L
+- O -> T Oa
+- Oa -> 'ou' T Oa | ε
+- T -> F Ta
+- Ta -> 'e' F Ta | ε
+- F -> S V G Pr
+- S -> 'eu' | 'você' | 'ele' | 'ela' | 'nós' | 'vocês' | 'eles' | 'elas'
+- V -> 'estou' | 'está' | 'estamos' | 'estão'
+- G -> 'falando' | 'comendo' | 'andando' | 'correndo' | 'estudando'
+- Prep-> 'no' | 'na' | 'em' | 'ao lado de' | 'perto de'
+- L -> 'parque' | 'escola' | 'casa' | 'cinema'
+- Pr -> Prep L
 
 
 Con esta gramática, una oración como:
