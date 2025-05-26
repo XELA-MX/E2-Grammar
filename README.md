@@ -142,6 +142,32 @@ Este punto es importante, principalmente porque la forma en que los parsers proc
 
 La recursividad izquierda puede crear una llamada recursiva infinita, haciendo que el parser intente expandir los no terminales indefinidamente sin consumir ninguna parte de la entrada.
 
+Esta es la lógica que se siguió a continuación:
+
+En la gramática original, las reglas con recursividad izquierda eran:  
+1. **O → O 'ou' T | T**  
+2. **T → T 'e' F | F**
+
+### Proceso de Eliminación  
+#### Para la regla **O → O 'ou' T | T**:  
+1. **Identificar componentes**:  
+   - β = T  
+   - α = 'ou' T  
+
+2. **Reescribir reglas**:  
+   - **O → T O'** (β seguido de nuevo no terminal)  
+   - **O' → 'ou' T O' | ε** (maneja repeticiones de α)  
+
+#### Para la regla **T → T 'e' F | F**:  
+1. **Identificar componentes**:  
+   - β = F  
+   - α = 'e' F  
+
+2. **Reescribir reglas**:  
+   - **T → F T'**  
+   - **T' → 'e' F T' | ε**  
+
+
 #### Nueva Gramática
 
 - O  → T O'
@@ -182,7 +208,9 @@ Para finalizar, realizamos nuestra tabla de primer y siguiente estado para prepa
 | L      | ✗         | {parque, escola, casa, cinema}                             | {e, ou, $}                                            |
 | Pr     | ✗         | {no, na, em, ao lado de, perto de}                         | {e, ou, $}                                            |
 
+
+
 ## Bibliografías
 (1) Teoría de la Computación. (2011). *Eliminación de recursividad izquierda*. Recuperado de http://teodelacomp.blogspot.com/2011/03/eliminacion-de-recursividad-izquierda.html
-
+Kevin Lajpop. (2021, 21 septiembre). Cálculo de primeros y siguientes: LL1 [Vídeo]. YouTube. https://www.youtube.com/watch?v=FX9bQ_YNlIc
 
