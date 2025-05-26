@@ -138,24 +138,31 @@ Esto fuerza la precedencia y elimina la ambigüedad, ya que "e" (and) se agrupa 
 
 ## Eliminar recursividad izquierda
 
-Este punto es importante, principalmente porque la forma en que los parsers procesan el lenguaje está definida por esa gramática. En nuestro caso, el analizador LL(1) es un analizador descendente que comienza por el símbolo inicial de la gramática e intenta derivar la cadena de entrada expandiendo los no terminales según las reglas de producción. 
+Este punto es importante, principalmente porque la forma en que los parsers procesan el lenguaje está definida por esa gramática. En nuestro caso, el analizador LL(1) es un analizador descendente que comienza por el símbolo inicial de la gramática e intenta derivar la cadena de entrada expandiendo los no terminales según las reglas de producción.
 
-La recursividad izquierda puede crear una llamada recursiva infinita, haciendo que el parser intente expandir los no terminales indefinidamente sin consumir ninguna parte de la entrada. 
+La recursividad izquierda puede crear una llamada recursiva infinita, haciendo que el parser intente expandir los no terminales indefinidamente sin consumir ninguna parte de la entrada.
 
-#### Nueva Grámatica
+#### Nueva Gramática
 
-- O -> T O'
-- O' -> 'ou' T O' | ε
-- T -> F T'
-- T' -> 'e' F T' | ε
-- F -> S V G Pr
-- S -> 'eu' | 'você' | 'ele' | 'ela' | 'nós' | 'vocês' | 'eles' | 'elas'
-- V -> 'estou' | 'está' | 'estamos' | 'estão'
-- G -> 'falando' | 'comendo' | 'andando' | 'correndo' | 'estudando'
-- Prep -> 'no' | 'na' | 'em' | 'ao lado de' | 'perto de'
-- L -> 'parque' | 'escola' | 'casa' | 'cinema'
-- Pr -> Prep L
-
+- O  → T O'
+- O' → 'ou' T O' | ε
+- T  → F T'
+- T' → 'e' F T' | ε
+- F  → S V G Pr
+- S  → 'eu' | 'você' | 'ele' | 'ela' | 'nós' | 'vocês' | 'eles' | 'elas'
+- V  → 'estou' | 'está' | 'estamos' | 'estão'
+- G  → 'falando' | 'comendo' | 'andando' | 'correndo' | 'estudando'
+- Prep → 'no' | 'na' | 'em' | 'ao lado de' | 'perto de'
+- L  → 'parque' | 'escola' | 'casa' | 'cinema'
+- Pr → Prep L
 
 De esta manera, por el lado izquierdo siempre encontrará los elementos terminales, mientras que del lado derecho irán apareciendo los no terminales hasta terminar con la oración que se corta con un épsilon ε.
+
+---
+
+**Referencia:**  
+Una explicación detallada del proceso y el algoritmo para eliminar la recursividad izquierda en gramáticas puede consultarse en:
+
+Teoría de la Computación. (2011). *Eliminación de recursividad izquierda*. Recuperado de http://teodelacomp.blogspot.com/2011/03/eliminacion-de-recursividad-izquierda.html
+
 
