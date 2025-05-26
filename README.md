@@ -101,6 +101,35 @@ La ambigüedad ocurre porque la gramática permite diferentes formas de agrupar 
 
 Esto significa que la gramática no es determinista y puede generar ambigüedad en el análisis sintáctico.
 
+---
+
+## Eliminar ambigüedad
+
+Para eliminar la ambigüedad, añadimos estados intermedios y reglas que indican precedencia, evitando que una oración pueda agruparse de varias formas distintas. Así, la conjunción "ou" (or) tendrá menor precedencia que "e" (and), y la gramática solo crecerá por un lado del árbol.
+
+Nueva grámatica:
+
+O -> T Oa
+Oa -> 'ou' T Oa | ε
+T -> F Ta
+Ta -> 'e' F Ta | ε
+F -> S V G Pr
+S -> 'eu' | 'você' | 'ele' | 'ela' | 'nós' | 'vocês' | 'eles' | 'elas'
+V -> 'estou' | 'está' | 'estamos' | 'estão'
+G -> 'falando' | 'comendo' | 'andando' | 'correndo' | 'estudando'
+Prep-> 'no' | 'na' | 'em' | 'ao lado de' | 'perto de'
+L -> 'parque' | 'escola' | 'casa' | 'cinema'
+Pr -> Prep L
+
+
+Con esta gramática, una oración como:
+
+- **"Eu estou falando na escola e você está correndo no parque ou ele está estudando no cinema"**
+
+solo puede agruparse de una forma, por ejemplo:
+
+
+
 
 
 
