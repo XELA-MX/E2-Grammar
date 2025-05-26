@@ -226,37 +226,24 @@ Para finalizar, realizamos nuestra tabla de primer y siguiente estado para prepa
 
 ## Implementación y Pruebas
 
-El parser se implementa utilizando una **pila** para gestionar los símbolos gramaticales y una **tabla de análisis LL(1)** precalculada. Los pasos clave son:
+Ya que tenemos nuestra gramática, realizamos la implementación en Python. El programa analiza las oraciones llamando a una función que valida si la estructura es correcta según la gramática definida. Además, se incluyen pruebas automatizadas: si alguna prueba falla, el programa imprime "No se puede analizar". Puedes consultar el código completo en el archivo correspondiente de este repositorio.
 
-1. **Inicialización**:  
-   - La pila se inicia con el símbolo inicial (`O`) y el marcador de fin (`$`).  
-   - Los tokens de entrada se leen de izquierda a derecha.  
+### Pruebas correctas
 
-2. **Proceso de Análisis**:  
-   - Si el tope de la pila es un **terminal**, se compara con el token actual de entrada:  
-     - Si coinciden, se elimina de la pila y se avanza al siguiente token.  
-     - Si no coinciden, se reporta un error.  
-   - Si el tope de la pila es un **no terminal**, se consulta la tabla LL(1) usando el no terminal y el token actual:  
-     - Se reemplaza el no terminal por la producción correspondiente (en orden inverso).  
-     - Si la celda está vacía, se reporta un error.  
+Las siguientes oraciones cumplen con la gramática definida y son reconocidas correctamente por el analizador:
 
-3. **Finalización**:  
-   - El análisis es exitoso si la pila y la entrada llegan a `$` simultáneamente.  
+- eu estou falando no parque
+- você está comendo na escola
+- nós estamos correndo perto_de casa e eles estão estudando no cinema
 
-### Casos de Prueba
-#### Pruebas Correctas (Ejemplos):  
-1. `Eu estou falando na escola`  
-2. `Você está correndo no parque`  
-3. `Nós estamos comendo na casa e eles estão estudando no cinema`  
+### Pruebas incorrectas
 
-#### Pruebas Incorrectas (Errores Comunes):  
-1. **Conjugación incorrecta**:  
-   - `Eu está falando` → `está` no coincide con `eu` (debería ser `estou`).  
-2. **Falta verbo auxiliar**:  
-   - `Você correndo na escola` → Falta `está`.  
-3. **Preposición ausente**:  
-   - `Ela está pensando escola` → Falta `na` antes de `escola`. 
+Las siguientes oraciones no cumplen con la gramática y el programa responde con "No se puede analizar":
 
+- eu está andando no cinema           // Error de conjugación
+- ela pensando na escola              // Falta el verbo auxiliar
+- nós estamos escola                  // Falta la preposición
+- estou falando em casa               // Falta el sujeto
 
 ## Bibliografías
 (1) Teoría de la Computación. (2011). *Eliminación de recursividad izquierda*. Recuperado de http://teodelacomp.blogspot.com/2011/03/eliminacion-de-recursividad-izquierda.html
