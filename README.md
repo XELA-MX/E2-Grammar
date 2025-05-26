@@ -90,5 +90,17 @@ Por ejemplo, la oración:
 
 ![](./imgs/a1.jfif)
 
+#### Árbol 2
+
+![](./imgs/a2.jfif)
+
+
+### ¿Por qué es ambigua?
+
+La ambigüedad ocurre porque la gramática permite diferentes formas de agrupar las oraciones cuando se usan varias conjunciones. Dependiendo de cómo se agrupen "e" y "ou", el significado de la frase puede cambiar, y esto se refleja en la existencia de varios árboles de derivación para una misma oración.
+
+Esto significa que la gramática no es determinista y puede generar ambigüedad en el análisis sintáctico.
+
+
 
 
