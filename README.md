@@ -136,7 +136,24 @@ Esto fuerza la precedencia y elimina la ambigüedad, ya que "e" (and) se agrupa 
 > **Nota:**  
 > Aunque la ambigüedad se elimina, la gramática aún puede tener recursividad izquierda, que se abordará en el siguiente paso.
 
+## Eliminar recursividad izquierda
+
+Este punto es importante, principalmente porque la forma en que los parsers procesan el lenguaje está definida por esa gramática. En nuestro caso, el analizador LL(1) es un analizador descendente que comienza por el símbolo inicial de la gramática e intenta derivar la cadena de entrada expandiendo los no terminales según las reglas de producción. La recursividad izquierda puede crear una llamada recursiva infinita, haciendo que el parser intente expandir los no terminales indefinidamente sin consumir ninguna parte de la entrada. De igual manera, ayuda al parser a tomar decisiones deterministas sobre qué producción aplicar.
+
+#### Nueva Grámatica
+
+- O -> T O'
+- O' -> 'ou' T O' | ε
+- T -> F T'
+- T' -> 'e' F T' | ε
+- F -> S V G Pr
+- S -> 'eu' | 'você' | 'ele' | 'ela' | 'nós' | 'vocês' | 'eles' | 'elas'
+- V -> 'estou' | 'está' | 'estamos' | 'estão'
+- G -> 'falando' | 'comendo' | 'andando' | 'correndo' | 'estudando'
+- Prep -> 'no' | 'na' | 'em' | 'ao lado de' | 'perto de'
+- L -> 'parque' | 'escola' | 'casa' | 'cinema'
+- Pr -> Prep L
 
 
-
+De esta manera, por el lado izquierdo siempre encontrará los elementos terminales, mientras que del lado derecho irán apareciendo los no terminales hasta terminar con la oración que se corta con un épsilon ε.
 
