@@ -245,6 +245,21 @@ Las siguientes oraciones no cumplen con la gramática y el programa responde con
 - nós estamos escola                  // Falta la preposición
 - estou falando em casa               // Falta el sujeto
 
+## Ejecutar el programa
+
+Para ejecutar el programa, sigue estos pasos:
+
+1. **Asegúrate de tener Python instalado** en tu sistema.
+2. **Instala NLTK** si aún no lo tienes:
+   
+> pip install nltk
+
+3. **Descarga el archivo** `ll1.py` que contiene la implementación del analizador y las pruebas.
+4. **Ejecuta el programa desde la terminal** en la carpeta donde guardaste el archivo:
+
+> python ll1.py
+
+Al ejecutar el programa, la salida mostrará los árboles de derivación para las oraciones válidas y el mensaje "Análisis INCORRECTO: No se pudo construir el árbol" para las oraciones que no cumplen con la gramática.
 
 ## Bibliografías
 (1) Teoría de la Computación. (2011). *Eliminación de recursividad izquierda*. Recuperado de http://teodelacomp.blogspot.com/2011/03/eliminacion-de-recursividad-izquierda.html
