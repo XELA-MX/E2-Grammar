@@ -128,7 +128,7 @@ Con esta gramática, una oración como:
 
 solo puede agruparse de una forma, por ejemplo:
 
-
+![](./imgs/amb-1.jfif)
 
 
 
